@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>College Assistant - Agent Execution Output</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; color: #e0e0e0; }
+  .terminal {
+    background: #0d1117;
+    border-radius: 12px;
+    margin: 30px auto;
+    max-width: 960px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    overflow: hidden;
+  }
+  .terminal-header {
+    background: #21262d;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.red { background: #ff5f57; }
+  .dot.yellow { background: #febc2e; }
+  .dot.green { background: #28c840; }
+  .terminal-title {
+    color: #8b949e;
+    font-size: 13px;
+    margin-left: 12px;
+  }
+  .terminal-body {
+    padding: 20px 24px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .heading { color: #58a6ff; font-weight: bold; font-size: 15px; }
+  .separator { color: #30363d; }
+  .test-label { color: #f0883e; font-weight: bold; }
+  .query { color: #c9d1d9; }
+  .chain { color: #7ee787; font-style: italic; }
+  .invoke { color: #d2a8ff; }
+  .tool-output { color: #79c0ff; }
+  .response-label { color: #f778ba; font-weight: bold; }
+  .response { color: #e6edf3; }
+  .wait { color: #8b949e; font-style: italic; }
+  .emoji { font-style: normal; }
+  .bold { font-weight: bold; color: #fff; }
+  .page-title {
+    text-align: center;
+    color: #58a6ff;
+    font-size: 22px;
+    padding-top: 30px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  .page-subtitle {
+    text-align: center;
+    color: #8b949e;
+    font-size: 14px;
+    padding: 6px 0 10px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  .badge {
+    display: inline-block;
+    background: #238636;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  .badge.multi { background: #8957e5; }
+  .badge.bonus { background: #d29922; }
+</style>
+</head>
+<body>
+
+<p class="page-title">🎓 AI-Powered College Assistant — Agent Execution</p>
+<p class="page-subtitle">LangChain Tool Calling Agent • verbose=True • All Test Cases</p>
+
+<!-- ═══════════════ TEST CASE 1 ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 1 — Attendance Calculator <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 1</span>
+<span class="query">   Query: I attended 72 classes out of 90. Am I eligible for exams?</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `attendance_calculator` with `{'total_classes': 90, 'attended_classes': 72}`</span>
+
+<span class="tool-output">📊 Attendance Report
+   Total Classes  : 90
+   Classes Attended: 72
+   Attendance %   : 80.00%
+   Exam Eligibility: ✅ Eligible for Exam</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">You have attended 72 out of 90 classes, which is 80.00%. You are eligible for the exams.</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 2 ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 2 — Result Calculator <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 2</span>
+<span class="query">   Query: My marks are 95, 90, 88, 91 and 87. What is my grade?</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `result_calculator` with `{'subject1': 95, 'subject2': 90, 'subject3': 88, 'subject4': 91, 'subject5': 87}`</span>
+
+<span class="tool-output">📝 Result Report
+   Marks          : 95.0, 90.0, 88.0, 91.0, 87.0
+   Average Marks  : 90.20
+   Grade          : A
+   Status         : ✅ PASS</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">Your average marks are 90.20, your grade is A, and you have passed.</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 3 ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 3 — Fee Balance Calculator <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 3</span>
+<span class="query">   Query: My course fee is 50000 and I have paid 35000. How much fee is pending?</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `fee_balance_calculator` with `{'total_fee': 50000, 'amount_paid': 35000}`</span>
+
+<span class="tool-output">💰 Fee Balance Report
+   Total Course Fee: ₹50000.00
+   Amount Paid     : ₹35000.00
+   Pending Fee     : ₹15000.00</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">Your pending fee is ₹15000.00.</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 4 ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 4 — Library Fine Calculator <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 4</span>
+<span class="query">   Query: I returned a library book 8 days late. What is the fine amount?</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `library_fine_calculator` with `{'delayed_days': 8}`</span>
+
+<span class="tool-output">📚 Library Fine Report
+   Delayed Days: 8
+   Fine Rate   : ₹5 per day
+   Total Fine  : ₹40</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">The fine amount for returning the library book 8 days late is ₹40.</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 5 ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 5 — Hostel Fee Calculator <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 5</span>
+<span class="query">   Query: Hostel fee is 6000 per month and I stayed for 5 months. Calculate my hostel fee.</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `hostel_fee_calculator` with `{'monthly_fee': 6000, 'months_stayed': 5}`</span>
+
+<span class="tool-output">🏠 Hostel Fee Report
+   Monthly Fee  : ₹6000.00
+   Months Stayed: 5
+   Total Fee    : ₹30000.00</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">Your total hostel fee is ₹30000.00.</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 6 — MULTI-TOOL ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 6 — Multi-Tool Challenge <span class="badge multi">⭐ MULTI-TOOL</span> <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 6</span>
+<span class="query">   Query: I attended 80 classes out of 100. My marks are 90, 85, 88, 92 and 95.
+   My course fee is 60000 and I paid 45000.
+   Provide: 1. Attendance Status 2. Grade 3. Pending Fee</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `attendance_calculator` with `{'attended_classes': 80, 'total_classes': 100}`</span>
+
+<span class="tool-output">📊 Attendance Report
+   Total Classes  : 100
+   Classes Attended: 80
+   Attendance %   : 80.00%
+   Exam Eligibility: ✅ Eligible for Exam</span>
+
+<span class="invoke">Invoking: `result_calculator` with `{'subject1': 90, 'subject2': 85, 'subject3': 88, 'subject4': 92, 'subject5': 95}`</span>
+
+<span class="tool-output">📝 Result Report
+   Marks          : 90.0, 85.0, 88.0, 92.0, 95.0
+   Average Marks  : 90.00
+   Grade          : A
+   Status         : ✅ PASS</span>
+
+<span class="invoke">Invoking: `fee_balance_calculator` with `{'total_fee': 60000, 'amount_paid': 45000}`</span>
+
+<span class="tool-output">💰 Fee Balance Report
+   Total Course Fee: ₹60000.00
+   Amount Paid     : ₹45000.00
+   Pending Fee     : ₹15000.00</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">Here is a summary of your academic information:
+
+<span class="bold">Attendance Status:</span>
+   • Total Classes: 100
+   • Classes Attended: 80
+   • Attendance Percentage: 80.00%
+   • Exam Eligibility: Eligible for Exam
+
+<span class="bold">Grade:</span>
+   • Marks: 90.0, 85.0, 88.0, 92.0, 95.0
+   • Average Marks: 90.00
+   • Grade: A
+   • Status: PASS
+
+<span class="bold">Pending Fee:</span>
+   • Total Course Fee: ₹60000.00
+   • Amount Paid: ₹45000.00
+   • Pending Fee: ₹15000.00</span>
+</div>
+</div>
+
+<!-- ═══════════════ TEST CASE 7 — BONUS ═══════════════ -->
+<div class="terminal">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">Test Case 7 — Student Information (Bonus) <span class="badge bonus">🎁 BONUS</span> <span class="badge">✅ PASS</span></span>
+  </div>
+  <div class="terminal-body"><span class="separator">──────────────────────────────────────────────────────────────────────</span>
+<span class="test-label">📌 Test Case 7</span>
+<span class="query">   Query: Get me the details of student S002.</span>
+<span class="separator">──────────────────────────────────────────────────────────────────────</span>
+
+<span class="chain">&gt; Entering new AgentExecutor chain...</span>
+
+<span class="invoke">Invoking: `student_info` with `{'student_id': 'S002'}`</span>
+
+<span class="tool-output">🎓 Student Information
+   Student ID : S002
+   Name       : Priya Patel
+   Branch     : Electronics
+   Semester   : 3
+   Email      : priya.patel@college.edu
+   Phone      : 9876543211
+   CGPA       : 9.2</span>
+
+<span class="chain">&gt; Finished chain.</span>
+
+<span class="response-label">🤖 Agent Response:</span>
+<span class="response">Here are the details for student S002:
+
+   • <span class="bold">Student ID</span>: S002
+   • <span class="bold">Name</span>: Priya Patel
+   • <span class="bold">Branch</span>: Electronics
+   • <span class="bold">Semester</span>: 3
+   • <span class="bold">Email</span>: priya.patel@college.edu
+   • <span class="bold">Phone</span>: 9876543211
+   • <span class="bold">CGPA</span>: 9.2</span>
+</div>
+</div>
+
+<div style="text-align:center; padding: 20px 0 40px; color: #238636; font-family: 'Segoe UI', Arial, sans-serif; font-size: 18px;">
+  ✅ All 7/7 Test Cases Passed — Agent Execution Complete
+</div>
+
+</body>
+</html>
